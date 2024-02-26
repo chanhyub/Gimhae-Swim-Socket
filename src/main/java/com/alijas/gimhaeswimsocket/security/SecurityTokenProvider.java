@@ -126,7 +126,7 @@ public class SecurityTokenProvider {
 
       var decodedJWT = JWT.require(algorithm).build().verify(token);
       var id = decodedJWT.getSubject();
-      var userDetails = userDetailsService.loadUserByUsername(id);
+      var userDetails = (SecurityUser) userDetailsService.loadUserByUsername(id);
 
       return new UsernamePasswordAuthenticationToken(userDetails, "", userDetails.getAuthorities());
    }

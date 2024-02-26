@@ -48,12 +48,7 @@ public class SectionService {
     }
 
     public List<SectionResponse> getSectionByCompetitionEvent(CompetitionEvent competitionEvent) {
-        List<Section> sectionList = sectionRepository.findByCompetitionEvent(competitionEvent);
-        if (sectionList.isEmpty()) {
-            throw new CustomRestException("해당 대회에 등록된 조가 없습니다.", HttpStatus.BAD_REQUEST);
-        }
-
-        return sectionList
+        return sectionRepository.findByCompetitionEvent(competitionEvent)
                 .stream()
                 .map(Section::toSectionResponse)
                 .toList();

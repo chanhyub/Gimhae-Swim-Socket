@@ -1,0 +1,118 @@
+ifndef::snippets[]
+:snippets: ../../../target/generated-snippets
+endif::[]
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 3
+:sectlinks:
+:operation-http-request-title: Example Request
+:operation-http-response-title: Example Response
+
+= 레인 API 문서
+
+== [FAIL] 레인 목록 조회 (조 ID가 존재하지 않음)
+
+=== HttpRequest 정보
+include::{snippets}/fail-lane-section-id-not-exist/http-request.adoc[]
+
+=== HttpResponse 정보
+include::{snippets}/fail-lane-section-id-not-exist/http-response.adoc[]
+
+=== RequestHeader 정보
+include::{snippets}/fail-lane-section-id-not-exist/request-headers.adoc[]
+
+=== QueryParameter 정보
+include::{snippets}/fail-lane-section-id-not-exist/query-parameters.adoc[]
+
+=== ResponseBody 정보
+include::{snippets}/fail-lane-section-id-not-exist/response-body.adoc[]
+
+=== ResponseFields 정보
+include::{snippets}/fail-lane-section-id-not-exist/response-fields.adoc[]
+
+=== CURL 정보
+include::{snippets}/fail-lane-section-id-not-exist/curl-request.adoc[]
+
+=== HTTPIE 정보
+include::{snippets}/fail-lane-section-id-not-exist/httpie-request.adoc[]
+
+== [FAIL] 레인 목록 조회 (조가 존재하지 않음)
+
+=== HttpRequest 정보
+include::{snippets}/fail-lane-section-not-exist/http-request.adoc[]
+
+=== HttpResponse 정보
+include::{snippets}/fail-lane-section-not-exist/http-response.adoc[]
+
+=== RequestHeader 정보
+include::{snippets}/fail-lane-section-not-exist/request-headers.adoc[]
+
+=== QueryParameter 정보
+include::{snippets}/fail-lane-section-not-exist/query-parameters.adoc[]
+
+=== ResponseBody 정보
+include::{snippets}/fail-lane-section-not-exist/response-body.adoc[]
+
+=== ResponseFields 정보
+include::{snippets}/fail-lane-section-not-exist/response-fields.adoc[]
+
+=== CURL 정보
+include::{snippets}/fail-lane-section-not-exist/curl-request.adoc[]
+
+=== HTTPIE 정보
+include::{snippets}/fail-lane-section-not-exist/httpie-request.adoc[]
+
+== [FAIL] 레인 목록 조회 (해당 레인 담당 심판이 아님)
+
+=== HttpRequest 정보
+include::{snippets}/fail-lane-not-referee/http-request.adoc[]
+
+=== HttpResponse 정보
+include::{snippets}/fail-lane-not-referee/http-response.adoc[]
+
+=== RequestHeader 정보
+include::{snippets}/fail-lane-not-referee/request-headers.adoc[]
+
+=== QueryParameter 정보
+include::{snippets}/fail-lane-not-referee/query-parameters.adoc[]
+
+=== ResponseBody 정보
+include::{snippets}/fail-lane-not-referee/response-body.adoc[]
+
+=== ResponseFields 정보
+include::{snippets}/fail-lane-not-referee/response-fields.adoc[]
+
+=== CURL 정보
+include::{snippets}/fail-lane-not-referee/curl-request.adoc[]
+
+=== HTTPIE 정보
+include::{snippets}/fail-lane-not-referee/httpie-request.adoc[]
+
+== [SUCCESS] 레인 목록 조회
+
+=== HttpRequest 정보
+include::{snippets}/success-lane-list/http-request.adoc[]
+
+=== HttpResponse 정보
+include::{snippets}/success-lane-list/http-response.adoc[]
+
+=== RequestHeader 정보
+include::{snippets}/success-lane-list/request-headers.adoc[]
+
+=== QueryParameter 정보
+include::{snippets}/success-lane-list/query-parameters.adoc[]
+
+=== ResponseBody 정보
+include::{snippets}/success-lane-list/response-body.adoc[]
+
+=== ResponseFields 정보
+include::{snippets}/success-lane-list/response-fields.adoc[]
+
+=== CURL 정보
+include::{snippets}/success-lane-list/curl-request.adoc[]
+
+=== HTTPIE 정보
+include::{snippets}/success-lane-list/httpie-request.adoc[]
+

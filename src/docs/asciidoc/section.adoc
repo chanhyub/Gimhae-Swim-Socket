@@ -1,0 +1,91 @@
+ifndef::snippets[]
+:snippets: ../../../target/generated-snippets
+endif::[]
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 3
+:sectlinks:
+:operation-http-request-title: Example Request
+:operation-http-response-title: Example Response
+
+= 대회 조 API 문서
+
+== [FAIL] 대회 조 목록 조회 (대회 종목 ID가 존재하지 않음)
+
+=== HttpRequest 정보
+include::{snippets}/fail-section-competition-event-id-not-exist/http-request.adoc[]
+
+=== HttpResponse 정보
+include::{snippets}/fail-section-competition-event-id-not-exist/http-response.adoc[]
+
+=== RequestHeader 정보
+include::{snippets}/fail-section-competition-event-id-not-exist/request-headers.adoc[]
+
+=== QueryParameters 정보
+include::{snippets}/fail-section-competition-event-id-not-exist/query-parameters.adoc[]
+
+=== ResponseBody 정보
+include::{snippets}/fail-section-competition-event-id-not-exist/response-body.adoc[]
+
+=== ResponseFields 정보
+include::{snippets}/fail-section-competition-event-id-not-exist/response-fields.adoc[]
+
+=== CURL 정보
+include::{snippets}/fail-section-competition-event-id-not-exist/curl-request.adoc[]
+
+=== HTTPIE 정보
+include::{snippets}/fail-section-competition-event-id-not-exist/httpie-request.adoc[]
+
+== [FAIL] 대회 조 목록 조회 (대회 종목이 존재하지 않음)
+
+=== HttpRequest 정보
+include::{snippets}/fail-section-competition-event-not-exist/http-request.adoc[]
+
+=== HttpResponse 정보
+include::{snippets}/fail-section-competition-event-not-exist/http-response.adoc[]
+
+=== RequestHeader 정보
+include::{snippets}/fail-section-competition-event-not-exist/request-headers.adoc[]
+
+=== QueryParameters 정보
+include::{snippets}/fail-section-competition-event-not-exist/query-parameters.adoc[]
+
+=== ResponseBody 정보
+include::{snippets}/fail-section-competition-event-not-exist/response-body.adoc[]
+
+=== ResponseFields 정보
+include::{snippets}/fail-section-competition-event-not-exist/response-fields.adoc[]
+
+=== CURL 정보
+include::{snippets}/fail-section-competition-event-not-exist/curl-request.adoc[]
+
+=== HTTPIE 정보
+include::{snippets}/fail-section-competition-event-not-exist/httpie-request.adoc[]
+
+== [SUCCESS] 대회 조 목록 조회
+
+=== HttpRequest 정보
+include::{snippets}/success-section-list/http-request.adoc[]
+
+=== HttpResponse 정보
+include::{snippets}/success-section-list/http-response.adoc[]
+
+=== RequestHeader 정보
+include::{snippets}/success-section-list/request-headers.adoc[]
+
+=== QueryParameters 정보
+include::{snippets}/success-section-list/query-parameters.adoc[]
+
+=== ResponseBody 정보
+include::{snippets}/success-section-list/response-body.adoc[]
+
+=== ResponseFields 정보
+include::{snippets}/success-section-list/response-fields.adoc[]
+
+=== CURL 정보
+include::{snippets}/success-section-list/curl-request.adoc[]
+
+=== HTTPIE 정보
+include::{snippets}/success-section-list/httpie-request.adoc[]

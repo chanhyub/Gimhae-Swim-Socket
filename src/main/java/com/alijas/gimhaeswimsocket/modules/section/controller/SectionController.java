@@ -28,15 +28,13 @@ public class SectionController {
 
     @GetMapping
     public ResponseEntity<List<SectionResponse>> getSections(
-            @RequestParam(value = "competitionEventId", required = true) Long competitionEventId
+            @RequestParam(value = "competitionEventId", required = false) Long competitionEventId
     ) {
         if (competitionEventId == null) {
             throw new CustomRestException("잘못된 요청입니다.", HttpStatus.BAD_REQUEST);
         }
 
         CompetitionEvent competitionEvent = competitionEventService.getCompetitionEvent(competitionEventId).orElseThrow(() -> new CustomRestException("해당 대회 종목을 찾을 수 없습니다.", HttpStatus.BAD_REQUEST));
-
-
 
         return ResponseEntity.ok(sectionService.getSectionByCompetitionEvent(competitionEvent));
     }

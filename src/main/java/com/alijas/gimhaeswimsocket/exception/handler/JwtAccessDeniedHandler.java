@@ -12,15 +12,23 @@ import java.io.IOException;
 public class JwtAccessDeniedHandler implements AccessDeniedHandler {
     @Override
     public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException accessDeniedException) throws IOException {
-        setResponse(response, accessDeniedException);
+        setResponse(request, response, accessDeniedException);
     }
 
-    private static void setResponse(HttpServletResponse response, AccessDeniedException accessDeniedException) throws IOException {
+    private static void setResponse(HttpServletRequest request, HttpServletResponse response, AccessDeniedException accessDeniedException) throws IOException {
         response.sendError(HttpServletResponse.SC_FORBIDDEN, accessDeniedException.getMessage());
         response.setStatus(HttpStatus.FORBIDDEN.value());
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
 
-        response.getWriter().println("권한이 없습니다.");
+        response.getWriter().println(
+                "{\n" +
+                        "    \"type\": \"about:blank\",\n" +
+                        "    \"title\": \""+ HttpStatus.FORBIDDEN.getReasonPhrase() +"\",\n" +
+                        "    \"status\": "+ response.getStatus() +",\n" +
+                        "    \"detail\": \"" + "권한이 없습니다." + "\",\n" +
+                        "    \"instance\": \"" + request.getServletPath() + "\"\n"
+                        + "}"
+        );
     }
 }

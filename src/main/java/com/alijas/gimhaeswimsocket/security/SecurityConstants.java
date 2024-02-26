@@ -9,7 +9,7 @@ public final class SecurityConstants {
     public static final String TOKEN_TYPE = "type";
 
 
-    public static long accessTokenDurationHour = 1L;
+    public static long accessTokenDurationHour = 8L;
     public static long refreshTokenDurationDay = 7L;
     public static String SECRET_KEY = "ghswim";
 

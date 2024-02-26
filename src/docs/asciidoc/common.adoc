@@ -1,0 +1,91 @@
+ifndef::snippets[]
+:snippets: ../../../target/generated-snippets
+endif::[]
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 3
+:sectlinks:
+:operation-http-request-title: Example Request
+:operation-http-response-title: Example Response
+
+= 공통 API 문서
+
+== [FAIL] 로그인 (유효성 검사)
+
+=== Http Request 정보
+include::{snippets}/fail-user-login-valid/http-request.adoc[]
+
+=== Http Response 정보
+include::{snippets}/fail-user-login-valid/http-response.adoc[]
+
+=== Request Body 정보
+include::{snippets}/fail-user-login-valid/request-body.adoc[]
+
+=== Request Field 정보
+include::{snippets}/fail-user-login-valid/request-fields.adoc[]
+
+=== Response Body 정보
+include::{snippets}/fail-user-login-valid/response-body.adoc[]
+
+=== Response Field 정보
+include::{snippets}/fail-user-login-valid/response-fields.adoc[]
+
+=== Request CURL
+include::{snippets}/fail-user-login-valid/curl-request.adoc[]
+
+=== Request HTTPIE
+include::{snippets}/fail-user-login-valid/httpie-request.adoc[]
+
+== [FAIL] 로그인 (비밀번호 불일치)
+
+=== Http Request 정보
+include::{snippets}/fail-user-login-password/http-request.adoc[]
+
+=== Http Response 정보
+include::{snippets}/fail-user-login-password/http-response.adoc[]
+
+=== Request Body 정보
+include::{snippets}/fail-user-login-password/request-body.adoc[]
+
+=== Request Field 정보
+include::{snippets}/fail-user-login-password/request-fields.adoc[]
+
+=== Response Body 정보
+include::{snippets}/fail-user-login-password/response-body.adoc[]
+
+=== Response Field 정보
+include::{snippets}/fail-user-login-password/response-fields.adoc[]
+
+=== Request CURL
+include::{snippets}/fail-user-login-password/curl-request.adoc[]
+
+=== Request HTTPIE
+include::{snippets}/fail-user-login-password/httpie-request.adoc[]
+
+== [SUCCESS] 로그인 성공
+
+=== Http Request 정보
+include::{snippets}/success-user-login/http-request.adoc[]
+
+=== Http Response 정보
+include::{snippets}/success-user-login/http-response.adoc[]
+
+=== Request Body 정보
+include::{snippets}/success-user-login/request-body.adoc[]
+
+=== Request Field 정보
+include::{snippets}/success-user-login/request-fields.adoc[]
+
+=== Response Body 정보
+include::{snippets}/success-user-login/response-body.adoc[]
+
+=== Response Field 정보
+include::{snippets}/success-user-login/response-fields.adoc[]
+
+=== Request CURL
+include::{snippets}/success-user-login/curl-request.adoc[]
+
+=== Request HTTPIE
+include::{snippets}/success-user-login/httpie-request.adoc[]

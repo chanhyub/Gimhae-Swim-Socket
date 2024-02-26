@@ -9,7 +9,6 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,17 +23,11 @@ public class CompetitionService {
 
 
     public Page<CompetitionResponse> getCompetitionList(Pageable pageable) {
-        Page<Competition> competitionPage = competitionRepository.findAllByStatus(pageable, CompetitionStatus.ACTIVE);
-
-        List<CompetitionResponse> list = competitionPage
-                .stream()
-                .map(Competition::toResponse)
-                .toList();
-
-        return new PageImpl<>(list, pageable, competitionPage.getTotalElements());
+        return competitionRepository.findAllByStatus(pageable, CompetitionStatus.ACTIVE)
+                .map(Competition::toResponse);
     }
 
-    public Optional<Competition> getComeptition(Long competitionId) {
+    public Optional<Competition> getCompetition(Long competitionId) {
         return competitionRepository.findById(competitionId);
     }
 }

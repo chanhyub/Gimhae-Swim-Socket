@@ -24,18 +24,8 @@ public class CompetitionEventService {
     }
 
     public Page<CompetitionEventResponse> getCompetitionEventByCompetitionId(Long competitionId, Pageable pageable) {
-
-        Page<CompetitionEvent> competitionEventPage = competitionEventRepository.findByCompetitionId(competitionId, pageable);
-        if (competitionEventPage.isEmpty()) {
-            throw new CustomRestException("해당 대회에 등록된 경기가 없습니다.", HttpStatus.BAD_REQUEST);
-        }
-
-//        List<CompetitionEventResponse> list = competitionEventPage
-//                .stream()
-//                .map(CompetitionEvent::toCompetitionEventResponse)
-//                .toList();
-
-        return competitionEventPage.map(CompetitionEvent::toCompetitionEventResponse);
+        return competitionEventRepository.findByCompetitionId(competitionId, pageable)
+                .map(CompetitionEvent::toCompetitionEventResponse);
     }
 
     public Optional<CompetitionEvent> getCompetitionEvent(Long competitionEventId) {

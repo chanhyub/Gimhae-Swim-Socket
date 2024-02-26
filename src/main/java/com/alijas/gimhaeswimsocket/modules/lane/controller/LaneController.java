@@ -10,10 +10,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,11 +27,15 @@ public class LaneController {
         this.sectionService = sectionService;
     }
 
-    @GetMapping("/{sectionId}")
+    @GetMapping
     public ResponseEntity<List<LaneResponse>> getLanes(
             @AuthenticationPrincipal SecurityUser securityUser,
-            @PathVariable Long sectionId
+            @RequestParam(value = "sectionId", required = false) Long sectionId
     ) {
+        if (sectionId == null) {
+            throw new CustomRestException("잘못된 요청입니다.", HttpStatus.BAD_REQUEST);
+        }
+
         Section section = sectionService.getSection(sectionId).orElseThrow(() -> new CustomRestException("조를 찾을 수 없습니다.", HttpStatus.BAD_REQUEST));
         return ResponseEntity.ok(laneService.getLaneBySectionId(section, securityUser.getUser()));
     }

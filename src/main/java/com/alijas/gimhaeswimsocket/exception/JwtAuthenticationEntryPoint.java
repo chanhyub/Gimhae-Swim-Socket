@@ -16,17 +16,21 @@ public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint {
     public void commence(HttpServletRequest request,
                          HttpServletResponse response,
                          AuthenticationException authException) throws IOException {
-        setResponse(response, authException);
+        setResponse(request, response, authException);
     }
 
-    private static void setResponse(HttpServletResponse response, AuthenticationException authException) throws IOException {
+    private static void setResponse(HttpServletRequest request, HttpServletResponse response, AuthenticationException ex) throws IOException {
         response.setStatus(HttpStatus.UNAUTHORIZED.value());
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
-        var resDTO = ResponseEntity.badRequest().body(authException.getMessage());
-        var objectMapper = new ObjectMapper();
-        response.getWriter().write(
-                objectMapper.writeValueAsString(resDTO)
+        response.getWriter().println(
+                "{\n" +
+                        "    \"type\": \"about:blank\",\n" +
+                        "    \"title\": \""+ HttpStatus.UNAUTHORIZED.getReasonPhrase() +"\",\n" +
+                        "    \"status\": "+ response.getStatus() +",\n" +
+                        "    \"detail\": \"" + "인증되지 않았습니다." + "\",\n" +
+                        "    \"instance\": \"" + request.getServletPath() + "\"\n"
+                        + "}"
         );
     }
 }

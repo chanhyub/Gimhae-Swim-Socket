@@ -1,4 +1,4 @@
-package com.alijas.gimhaeswimsocket.config;
+package com.alijas.gimhaeswimsocket.security;
 
 import com.alijas.gimhaeswimsocket.exception.JwtAuthenticationEntryPoint;
 import com.alijas.gimhaeswimsocket.exception.UnauthorizedExceptionFilter;
@@ -65,7 +65,7 @@ public class SecurityConfig {
                                 .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
                                 .requestMatchers(PathRequest.toH2Console()).permitAll()
                                 .requestMatchers(new MvcRequestMatcher(introspector,"/login")).permitAll()
-                                .anyRequest().hasAuthority("REFEREE")
+                                .anyRequest().hasAnyAuthority("REFEREE", "ADMIN")
                 )
                 .csrf(AbstractHttpConfigurer::disable)
                 .headers(config -> config.frameOptions(HeadersConfigurer.FrameOptionsConfig::sameOrigin))

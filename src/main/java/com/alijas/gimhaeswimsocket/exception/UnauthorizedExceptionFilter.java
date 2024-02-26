@@ -27,11 +27,19 @@ public class UnauthorizedExceptionFilter extends OncePerRequestFilter {
         }
     }
 
-    public void setErrorResponse(HttpServletRequest req, HttpServletResponse response, Throwable ex) throws IOException {
+    public void setErrorResponse(HttpServletRequest request, HttpServletResponse response, Throwable ex) throws IOException {
         response.setStatus(HttpStatus.UNAUTHORIZED.value());
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
 
-        response.getWriter().println("인증되지 않았습니다.");
+        response.getWriter().println(
+                "{\n" +
+                        "    \"type\": \"about:blank\",\n" +
+                        "    \"title\": \""+ HttpStatus.UNAUTHORIZED.getReasonPhrase() +"\",\n" +
+                        "    \"status\": "+ response.getStatus() +",\n" +
+                        "    \"detail\": \"" + "JWT 토큰 만료" + "\",\n" +
+                        "    \"instance\": \"" + request.getServletPath() + "\"\n"
+                        + "}"
+        );
     }
 }
