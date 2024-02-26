@@ -64,7 +64,10 @@ public class SecurityConfig {
                         authorize
                                 .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
                                 .requestMatchers(PathRequest.toH2Console()).permitAll()
-                                .requestMatchers(new MvcRequestMatcher(introspector,"/login")).permitAll()
+                                .requestMatchers(
+                                        new MvcRequestMatcher(introspector,"/login"),
+                                        new MvcRequestMatcher(introspector,"/docs/**")
+                                ).permitAll()
                                 .anyRequest().hasAnyAuthority("REFEREE", "ADMIN")
                 )
                 .csrf(AbstractHttpConfigurer::disable)
