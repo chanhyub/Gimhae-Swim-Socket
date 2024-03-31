@@ -30,9 +30,15 @@ public class LaneService {
         this.sectionRepository = sectionRepository;
     }
 
-    public List<Lane> findBySection(Section section) {
-        return laneRepository.findBySection(section);
+    public List<Lane> findBySectionAndTeamMemberIsNotNullAndRefereeIsNotNull(Section section) {
+        return laneRepository.findBySectionAndTeamMemberIsNotNullAndRefereeIsNotNull(section);
     }
+
+    public List<Lane> findBySectionAndUserIsNotNullAndRefereeIsNotNull(Section section) {
+        return laneRepository.findBySectionAndTeamMemberIsNotNullAndRefereeIsNotNull(section);
+    }
+
+//    public List<Lane> findBy
 
     public List<LaneResponse> getLaneBySectionId(Section section, User user) {
 

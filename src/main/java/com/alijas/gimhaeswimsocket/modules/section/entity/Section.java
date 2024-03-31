@@ -30,6 +30,10 @@ public class Section extends BaseTime {
     @ManyToOne
     private CompetitionEvent competitionEvent;
 
+    @Comment("조 기록 측정 완료 여부")
+    @Column(columnDefinition = "boolean default false")
+    private Boolean isComplete;
+
     public SectionResponse toSectionResponse() {
         return new SectionResponse(
                 this.id,

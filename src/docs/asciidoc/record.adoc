@@ -1,0 +1,123 @@
+ifndef::snippets[]
+:snippets: ../../../target/generated-snippets
+endif::[]
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 3
+:sectlinks:
+:operation-http-request-title: Example Request
+:operation-http-response-title: Example Response
+
+= 경기 기록 API 문서
+
+== [FAIL] 경기 기록 저장(레인 ID가 존재하지 않음)
+
+=== HttpRequest 정보
+include::{snippets}/fail-record-save-valid1/http-request.adoc[]
+
+=== HttpResponse 정보
+include::{snippets}/fail-record-save-valid1/http-response.adoc[]
+
+=== RequestHeader 정보
+include::{snippets}/fail-record-save-valid1/request-headers.adoc[]
+
+=== RequestBody 정보
+include::{snippets}/fail-record-save-valid1/request-body.adoc[]
+
+=== RequestField 정보
+include::{snippets}/fail-record-save-valid1/request-fields.adoc[]
+
+=== ResponseBody 정보
+include::{snippets}/fail-record-save-valid1/response-body.adoc[]
+
+=== ResponseField 정보
+include::{snippets}/fail-record-save-valid1/response-fields.adoc[]
+
+=== CURL 정보
+include::{snippets}/fail-record-save-valid1/curl-request.adoc[]
+
+=== HTTPIE 정보
+include::{snippets}/fail-record-save-valid1/httpie-request.adoc[]
+
+== [FAIL] 경기 기록 저장(기록이 존재하지 않음)
+=== HttpRequest 정보
+include::{snippets}/fail-record-save-valid2/http-request.adoc[]
+
+=== HttpResponse 정보
+include::{snippets}/fail-record-save-valid2/http-response.adoc[]
+
+=== RequestHeader 정보
+include::{snippets}/fail-record-save-valid2/request-headers.adoc[]
+
+=== RequestBody 정보
+include::{snippets}/fail-record-save-valid2/request-body.adoc[]
+
+=== RequestField 정보
+include::{snippets}/fail-record-save-valid2/request-fields.adoc[]
+
+=== ResponseBody 정보
+include::{snippets}/fail-record-save-valid2/response-body.adoc[]
+
+=== ResponseField 정보
+include::{snippets}/fail-record-save-valid2/response-fields.adoc[]
+
+=== CURL 정보
+include::{snippets}/fail-record-save-valid2/curl-request.adoc[]
+
+=== HTTPIE 정보
+include::{snippets}/fail-record-save-valid2/httpie-request.adoc[]
+
+== [FAIL] 경기 기록 저장(레인이 존재하지 않음)
+=== HttpRequest 정보
+include::{snippets}/fail-record-save-lane-not-exist/http-request.adoc[]
+
+=== HttpResponse 정보
+include::{snippets}/fail-record-save-lane-not-exist/http-response.adoc[]
+
+=== RequestHeader 정보
+include::{snippets}/fail-record-save-lane-not-exist/request-headers.adoc[]
+
+=== RequestBody 정보
+include::{snippets}/fail-record-save-lane-not-exist/request-body.adoc[]
+
+=== RequestField 정보
+include::{snippets}/fail-record-save-lane-not-exist/request-fields.adoc[]
+
+=== ResponseBody 정보
+include::{snippets}/fail-record-save-lane-not-exist/response-body.adoc[]
+
+=== ResponseField 정보
+include::{snippets}/fail-record-save-lane-not-exist/response-fields.adoc[]
+
+=== CURL 정보
+include::{snippets}/fail-record-save-lane-not-exist/curl-request.adoc[]
+
+=== HTTPIE 정보
+include::{snippets}/fail-record-save-lane-not-exist/httpie-request.adoc[]
+
+== [SUCCESS] 경기 기록 저장
+=== HttpRequest 정보
+include::{snippets}/success-record-save/http-request.adoc[]
+
+=== HttpResponse 정보
+include::{snippets}/success-record-save/http-response.adoc[]
+
+=== RequestHeader 정보
+include::{snippets}/success-record-save/request-headers.adoc[]
+
+=== RequestBody 정보
+include::{snippets}/success-record-save/request-body.adoc[]
+
+=== RequestField 정보
+include::{snippets}/success-record-save/request-fields.adoc[]
+
+=== ResponseBody 정보
+include::{snippets}/success-record-save/response-body.adoc[]
+
+=== CURL 정보
+include::{snippets}/success-record-save/curl-request.adoc[]
+
+=== HTTPIE 정보
+include::{snippets}/success-record-save/httpie-request.adoc[]

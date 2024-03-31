@@ -1,22 +1,26 @@
 package com.alijas.gimhaeswimsocket.modules.lane.controller;
 
 import com.alijas.gimhaeswimsocket.modules.common.exception.CustomRestException;
+import com.alijas.gimhaeswimsocket.modules.lane.dto.LaneUpdateRequest;
 import com.alijas.gimhaeswimsocket.modules.lane.entity.Lane;
 import com.alijas.gimhaeswimsocket.modules.lane.response.LaneResponse;
 import com.alijas.gimhaeswimsocket.modules.lane.service.LaneService;
 import com.alijas.gimhaeswimsocket.modules.section.entity.Section;
 import com.alijas.gimhaeswimsocket.modules.section.service.SectionService;
 import com.alijas.gimhaeswimsocket.security.SecurityUser;
+import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
-@RequestMapping("lanes")
+@RequestMapping("/lanes")
 public class LaneController {
 
     private final LaneService laneService;
@@ -43,9 +47,14 @@ public class LaneController {
 
     @PutMapping
     public ResponseEntity<String> updateLane(
-            @RequestParam(value = "laneId") Long laneId
+            @Valid @RequestBody LaneUpdateRequest laneUpdateRequest,
+            Errors errors
     ) {
-        Lane lane = laneService.getLane(laneId).orElseThrow(() -> new CustomRestException("레인을 찾을 수 없습니다.", HttpStatus.BAD_REQUEST));
+        if(errors.hasErrors()) {
+            throw new CustomRestException(errors.getAllErrors().get(0).getDefaultMessage(), HttpStatus.BAD_REQUEST);
+        }
+
+        Lane lane = laneService.getLane(laneUpdateRequest.laneId()).orElseThrow(() -> new CustomRestException("레인을 찾을 수 없습니다.", HttpStatus.BAD_REQUEST));
 
         laneService.updateLane(lane);
         return ResponseEntity.ok("측정이 완료되었습니다.");

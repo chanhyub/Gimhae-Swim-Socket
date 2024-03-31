@@ -8,4 +8,8 @@ import java.util.List;
 
 public interface LaneRepository extends JpaRepository<Lane, Long> {
     List<Lane> findBySection(Section section);
+
+    List<Lane> findBySectionAndTeamMemberIsNotNullAndRefereeIsNotNull(Section section);
+
+    List<Lane> findBySectionAndUserIsNotNullAndRefereeIsNotNull(Section section);
 }

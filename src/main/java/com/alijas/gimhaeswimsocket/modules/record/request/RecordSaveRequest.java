@@ -18,9 +18,6 @@ public class RecordSaveRequest {
     @NotNull(message = "레인 고유 번호는 필수입니다.")
     private Long laneId;
 
-    @NotNull(message = "경기인 고유 번호는 필수입니다.")
-    private Long userId;
-
     @NotBlank(message = "기록은 필수입니다.")
     private String record;
 

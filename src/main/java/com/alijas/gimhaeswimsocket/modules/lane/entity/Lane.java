@@ -47,7 +47,7 @@ public class Lane extends BaseTime {
     @ManyToOne
     private Section section;
 
-    @Comment("레인 상태")
+    @Comment("레인 기록 측정 완료 여부")
     @Column(columnDefinition = "boolean default false")
     private Boolean isComplete;
 
