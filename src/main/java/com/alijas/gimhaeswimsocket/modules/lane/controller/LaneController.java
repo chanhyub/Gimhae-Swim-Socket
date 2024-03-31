@@ -1,6 +1,7 @@
 package com.alijas.gimhaeswimsocket.modules.lane.controller;
 
 import com.alijas.gimhaeswimsocket.modules.common.exception.CustomRestException;
+import com.alijas.gimhaeswimsocket.modules.lane.entity.Lane;
 import com.alijas.gimhaeswimsocket.modules.lane.response.LaneResponse;
 import com.alijas.gimhaeswimsocket.modules.lane.service.LaneService;
 import com.alijas.gimhaeswimsocket.modules.section.entity.Section;
@@ -38,5 +39,15 @@ public class LaneController {
 
         Section section = sectionService.getSection(sectionId).orElseThrow(() -> new CustomRestException("조를 찾을 수 없습니다.", HttpStatus.BAD_REQUEST));
         return ResponseEntity.ok(laneService.getLaneBySectionId(section, securityUser.getUser()));
+    }
+
+    @PutMapping
+    public ResponseEntity<String> updateLane(
+            @RequestParam(value = "laneId") Long laneId
+    ) {
+        Lane lane = laneService.getLane(laneId).orElseThrow(() -> new CustomRestException("레인을 찾을 수 없습니다.", HttpStatus.BAD_REQUEST));
+
+        laneService.updateLane(lane);
+        return ResponseEntity.ok("측정이 완료되었습니다.");
     }
 }

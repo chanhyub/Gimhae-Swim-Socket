@@ -1,6 +1,7 @@
 package com.alijas.gimhaeswimsocket.modules.lane.entity;
 
 import com.alijas.gimhaeswimsocket.modules.common.jpa.BaseTime;
+import com.alijas.gimhaeswimsocket.modules.lane.enums.LaneStatus;
 import com.alijas.gimhaeswimsocket.modules.lane.response.LaneResponse;
 import com.alijas.gimhaeswimsocket.modules.referee.entity.Referee;
 import com.alijas.gimhaeswimsocket.modules.section.entity.Section;
@@ -11,6 +12,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.Comment;
 
 @Entity
@@ -45,12 +47,17 @@ public class Lane extends BaseTime {
     @ManyToOne
     private Section section;
 
+    @Comment("레인 상태")
+    @Column(columnDefinition = "boolean default false")
+    private Boolean isComplete;
+
     public LaneResponse toLaneResponse() {
         return new LaneResponse(
                 this.id,
                 this.laneNumber,
                 this.user == null ? this.teamMember.getUser().toUserLaneDTO() : this.user.toUserLaneDTO(),
-                this.referee.toRefereeLaneDTO()
+                this.referee.toRefereeLaneDTO(),
+                this.isComplete
         );
     }
 }

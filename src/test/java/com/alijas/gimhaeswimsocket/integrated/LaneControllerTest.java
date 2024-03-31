@@ -125,7 +125,8 @@ public class LaneControllerTest extends AbstractIntegrated {
                 fieldWithPath("[].user.id").description("경기인 고유번호"),
                 fieldWithPath("[].user.fullName").description("경기인 이름"),
                 fieldWithPath("[].referee.id").description("심판 고유번호"),
-                fieldWithPath("[].referee.refereeName").description("심판 이름")
+                fieldWithPath("[].referee.refereeName").description("심판 이름"),
+                fieldWithPath("[].isComplete").description("기록 측정 완료 여부")
         };
     }
 

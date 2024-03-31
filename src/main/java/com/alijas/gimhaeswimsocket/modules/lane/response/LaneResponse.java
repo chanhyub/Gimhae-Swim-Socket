@@ -7,6 +7,7 @@ public record LaneResponse(
         Long id,
         Integer laneNumber,
         UserLaneDTO user,
-        RefereeLaneDTO referee
+        RefereeLaneDTO referee,
+        Boolean isComplete
 ) {
 }

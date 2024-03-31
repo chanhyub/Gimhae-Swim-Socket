@@ -12,11 +12,13 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
+@Transactional(readOnly = true)
 public class LaneService {
 
     private final LaneRepository laneRepository;
@@ -56,5 +58,11 @@ public class LaneService {
 
     public Optional<Lane> getLane(Long id) {
         return laneRepository.findById(id);
+    }
+
+    @Transactional
+    public void updateLane(Lane lane) {
+        lane.setIsComplete(true);
+        laneRepository.save(lane);
     }
 }

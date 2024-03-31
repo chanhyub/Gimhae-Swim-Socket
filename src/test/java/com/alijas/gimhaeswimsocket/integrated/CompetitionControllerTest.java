@@ -56,6 +56,7 @@ public class CompetitionControllerTest extends AbstractIntegrated {
                 subsectionWithPath("content").description("내용 배열"),
                 fieldWithPath("content[].id").description("대회 고유번호"),
                 fieldWithPath("content[].competitionName").description("대회명"),
+                fieldWithPath("content[].competitionDate").description("대회 날짜"),
                 subsectionWithPath("pageable").description("page 종합 정보"),
                 fieldWithPath("pageable.pageNumber").description("페이지 번호"),
                 fieldWithPath("pageable.pageSize").description("페이지 크기"),

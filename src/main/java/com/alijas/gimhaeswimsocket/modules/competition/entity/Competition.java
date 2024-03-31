@@ -62,7 +62,8 @@ public class Competition extends BaseTime {
     public CompetitionResponse toResponse() {
         return new CompetitionResponse(
                 this.id,
-                this.competitionName
+                this.competitionName,
+                DateTimeConverter.LocalDateTimeToStringYYYYMMDD(this.competitionDate)
         );
     }
 
