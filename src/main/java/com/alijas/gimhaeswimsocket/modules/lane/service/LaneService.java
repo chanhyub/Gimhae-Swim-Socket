@@ -35,7 +35,7 @@ public class LaneService {
     }
 
     public List<Lane> findBySectionAndUserIsNotNullAndRefereeIsNotNull(Section section) {
-        return laneRepository.findBySectionAndTeamMemberIsNotNullAndRefereeIsNotNull(section);
+        return laneRepository.findBySectionAndUserIsNotNullAndRefereeIsNotNull(section);
     }
 
 //    public List<Lane> findBy

@@ -8,5 +8,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 
 public interface TeamPointRepository extends JpaRepository<TeamPoint, Long> {
-    TeamPoint findByCompetitionEventAndTeam(CompetitionEvent competitionEvent, Team team);
+    Optional<TeamPoint> findByCompetitionEventAndTeam(CompetitionEvent competitionEvent, Team team);
 }

@@ -67,11 +67,11 @@ public class RecordService {
             }
 
             Record record = recordRepository.findByLane(laneList.get(i)).orElseThrow(() -> new CustomRestException("해당 레인에 대한 기록이 존재하지 않습니다.", HttpStatus.BAD_REQUEST));
-            TeamMember teamMember = teamMemberRepository.findByUser(laneList.get(i).getUser()).orElseThrow(() -> new CustomRestException("해당 유저에 대한 팀원 정보가 존재하지 않습니다.", HttpStatus.BAD_REQUEST));
+            TeamMember teamMember = teamMemberRepository.findByUser(laneList.get(i).getTeamMember().getUser()).orElseThrow(() -> new CustomRestException("해당 유저에 대한 팀원 정보가 존재하지 않습니다.", HttpStatus.BAD_REQUEST));
 
-            TeamPoint teamPoint = teamPointRepository.findByCompetitionEventAndTeam(competitionEvent, teamMember.getTeam());
-            if (teamPoint != null) {
-//                TeamPoint teamPoint = optionalTeamPoint.get();
+            Optional<TeamPoint> optionalTeamPoint = teamPointRepository.findByCompetitionEventAndTeam(competitionEvent, teamMember.getTeam());
+            if (optionalTeamPoint.isPresent()) {
+                TeamPoint teamPoint = optionalTeamPoint.get();
                 switch (i) {
                     case 0:
                         teamPointRepository.save(

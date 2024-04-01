@@ -121,3 +121,86 @@ include::{snippets}/success-record-save/curl-request.adoc[]
 
 === HTTPIE 정보
 include::{snippets}/success-record-save/httpie-request.adoc[]
+
+== [FAIL] 경기 기록 정산(조가 존재하지 않음)
+=== HttpRequest 정보
+include::{snippets}/fail-record-total-save-valid1/http-request.adoc[]
+
+=== HttpResponse 정보
+include::{snippets}/fail-record-total-save-valid1/http-response.adoc[]
+
+=== RequestHeader 정보
+include::{snippets}/fail-record-total-save-valid1/request-headers.adoc[]
+
+=== RequestBody 정보
+include::{snippets}/fail-record-total-save-valid1/request-body.adoc[]
+
+=== RequestField 정보
+include::{snippets}/fail-record-total-save-valid1/request-fields.adoc[]
+
+=== ResponseBody 정보
+include::{snippets}/fail-record-total-save-valid1/response-body.adoc[]
+
+=== ResponseField 정보
+include::{snippets}/fail-record-total-save-valid1/response-fields.adoc[]
+
+=== CURL 정보
+include::{snippets}/fail-record-total-save-valid1/curl-request.adoc[]
+
+=== HTTPIE 정보
+include::{snippets}/fail-record-total-save-valid1/httpie-request.adoc[]
+
+== [FAIL] 경기 기록 정산(대회 종목이 존재하지 않음)
+=== HttpRequest 정보
+include::{snippets}/fail-record-total-save-valid2/http-request.adoc[]
+
+=== HttpResponse 정보
+include::{snippets}/fail-record-total-save-valid2/http-response.adoc[]
+
+=== RequestHeader 정보
+include::{snippets}/fail-record-total-save-valid2/request-headers.adoc[]
+
+=== RequestBody 정보
+include::{snippets}/fail-record-total-save-valid2/request-body.adoc[]
+
+=== RequestField 정보
+include::{snippets}/fail-record-total-save-valid2/request-fields.adoc[]
+
+=== ResponseBody 정보
+include::{snippets}/fail-record-total-save-valid2/response-body.adoc[]
+
+=== ResponseField 정보
+include::{snippets}/fail-record-total-save-valid2/response-fields.adoc[]
+
+=== CURL 정보
+include::{snippets}/fail-record-total-save-valid2/curl-request.adoc[]
+
+=== HTTPIE 정보
+include::{snippets}/fail-record-total-save-valid2/httpie-request.adoc[]
+
+== [SUCCESS] 경기 기록 정산
+=== HttpRequest 정보
+include::{snippets}/success-record-total-save-individual/http-request.adoc[]
+
+=== HttpResponse 정보
+include::{snippets}/success-record-total-save-individual/http-response.adoc[]
+
+=== RequestHeader 정보
+include::{snippets}/success-record-total-save-individual/request-headers.adoc[]
+
+=== RequestBody 정보
+include::{snippets}/success-record-total-save-individual/request-body.adoc[]
+
+=== RequestField 정보
+include::{snippets}/success-record-total-save-individual/request-fields.adoc[]
+
+=== ResponseBody 정보
+include::{snippets}/success-record-total-save-individual/response-body.adoc[]
+
+=== CURL 정보
+include::{snippets}/success-record-total-save-individual/curl-request.adoc[]
+
+=== HTTPIE 정보
+include::{snippets}/success-record-total-save-individual/httpie-request.adoc[]
+
+
