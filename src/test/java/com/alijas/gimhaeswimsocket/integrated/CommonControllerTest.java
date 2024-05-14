@@ -1,6 +1,13 @@
 package com.alijas.gimhaeswimsocket.integrated;
 
+import com.alijas.gimhaeswimsocket.common.enums.Gender;
 import com.alijas.gimhaeswimsocket.modules.common.dto.LoginRequest;
+import com.alijas.gimhaeswimsocket.modules.common.dto.ReLoginRequest;
+import com.alijas.gimhaeswimsocket.modules.user.entity.User;
+import com.alijas.gimhaeswimsocket.modules.user.enums.ApplyStatus;
+import com.alijas.gimhaeswimsocket.modules.user.enums.RoleType;
+import com.alijas.gimhaeswimsocket.modules.user.enums.UserStatus;
+import com.alijas.gimhaeswimsocket.security.SecurityTokenType;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.MediaType;
@@ -99,9 +106,125 @@ public class CommonControllerTest extends AbstractIntegrated {
                                 ),
                                 responseFields(
                                         fieldWithPath("accessToken").description("액세스 토큰"),
-                                        fieldWithPath("refreshToken").description("리프레시 토큰(구현 안 됨)")
+                                        fieldWithPath("refreshToken").description("리프레시 토큰")
                                 )
                         )
                 );
     }
+
+    @Test
+    @DisplayName("리로그인 실패 - 유효성 검사 실패")
+    void reLoginValidFail() throws Exception {
+        ReLoginRequest reLoginRequest = new ReLoginRequest("");
+
+        ResultActions perform = this.mockMvc.perform(
+                post("/re-login")
+                        .content(objectMapper.writeValueAsString(reLoginRequest))
+                        .accept(MediaType.APPLICATION_JSON_VALUE)
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+        );
+
+        perform
+                .andExpect(status().isBadRequest())
+                .andDo(print())
+                .andDo(
+                        document("fail-user-re-login-valid",
+                                requestFields(
+                                        new FieldDescriptor[] {
+                                                fieldWithPath("refreshToken").description("리프레시 토큰")
+                                        }
+                                ),
+                                responseFields(getFailResponseField)
+                        )
+                );
+    }
+
+    @Test
+    @DisplayName("리로그인 실패 - 토큰 값이 올바르지 않음")
+    void reLoginTokenFail() throws Exception {
+        ReLoginRequest reLoginRequest = new ReLoginRequest("easd");
+        ResultActions perform = this.mockMvc.perform(
+                post("/re-login")
+                        .content(objectMapper.writeValueAsString(reLoginRequest))
+                        .accept(MediaType.APPLICATION_JSON_VALUE)
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+        );
+
+        perform
+                .andExpect(status().isBadRequest())
+                .andDo(print())
+                .andDo(
+                        document("fail-user-re-login-token-not-valid",
+                                requestFields(
+                                        new FieldDescriptor[] {
+                                                fieldWithPath("refreshToken").description("리프레시 토큰")
+                                        }
+                                ),
+                                responseFields(getFailResponseField)
+                        )
+                );
+    }
+
+    @Test
+    @DisplayName("리로그인 실패 - 아이디가 존재하지 않음")
+    void reLoginIdFail() throws Exception {
+        User user = new User(null, "qqqqqqq", "심판1", "$2a$10$zG7hMrPY77D4YGyljxeK2uAE8.ujhC5HJ2Cy/CsDrtCctLzf.EGYW", "1999-10-28", "01083384583", "test1234@test.com", Gender.M, true, UserStatus.ACTIVE, ApplyStatus.APPROVED, RoleType.REFEREE);
+        String token = securityTokenProvider.createToken(user.getUsername(), user.getRole().name(), SecurityTokenType.REFRESH_TOKEN);
+        ReLoginRequest reLoginRequest = new ReLoginRequest(token);
+
+        ResultActions perform = this.mockMvc.perform(
+                post("/re-login")
+                        .content(objectMapper.writeValueAsString(reLoginRequest))
+                        .accept(MediaType.APPLICATION_JSON_VALUE)
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+        );
+
+        perform
+                .andExpect(status().isBadRequest())
+                .andDo(print())
+                .andDo(
+                        document("fail-user-re-login-id-not-exist",
+                                requestFields(
+                                        new FieldDescriptor[] {
+                                                fieldWithPath("refreshToken").description("리프레시 토큰")
+                                        }
+                                ),
+                                responseFields(getFailResponseField)
+                        )
+                );
+    }
+
+    @Test
+    @DisplayName("리로그인 성공")
+    void reLoginSuccess() throws Exception {
+        User user = new User(null, "referee1", "심판1", "$2a$10$zG7hMrPY77D4YGyljxeK2uAE8.ujhC5HJ2Cy/CsDrtCctLzf.EGYW", "1999-10-28", "01083384583", "test1234@test.com", Gender.M, true, UserStatus.ACTIVE, ApplyStatus.APPROVED, RoleType.REFEREE);
+        String token = securityTokenProvider.createToken(user.getUsername(), user.getRole().name(), SecurityTokenType.REFRESH_TOKEN);
+        ReLoginRequest reLoginRequest = new ReLoginRequest(token);
+
+        ResultActions perform = this.mockMvc.perform(
+                post("/re-login")
+                        .content(objectMapper.writeValueAsString(reLoginRequest))
+                        .accept(MediaType.APPLICATION_JSON_VALUE)
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+        );
+
+        perform
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andDo(
+                        document("success-user-re-login",
+                                requestFields(
+                                        new FieldDescriptor[] {
+                                                fieldWithPath("refreshToken").description("리프레시 토큰")
+                                        }
+                                ),
+                                responseFields(
+                                        fieldWithPath("accessToken").description("액세스 토큰"),
+                                        fieldWithPath("refreshToken").description("리프레시 토큰")
+                                )
+                        )
+                );
+    }
+
+
 }

@@ -59,7 +59,7 @@ public class AbstractIntegrated {
     private SecurityService securityService;
 
     @Autowired
-    private SecurityTokenProvider securityTokenProvider;
+    protected SecurityTokenProvider securityTokenProvider;
 
     @BeforeEach
     void setUp(WebApplicationContext webApplicationContext, RestDocumentationContextProvider restDocumentation) {

@@ -66,6 +66,7 @@ public class SecurityConfig {
                                 .requestMatchers(PathRequest.toH2Console()).permitAll()
                                 .requestMatchers(
                                         new MvcRequestMatcher(introspector,"/login"),
+                                        new MvcRequestMatcher(introspector,"/re-login"),
                                         new MvcRequestMatcher(introspector,"/docs/**")
                                 ).permitAll()
                                 .anyRequest().hasAnyAuthority("REFEREE", "ADMIN")
