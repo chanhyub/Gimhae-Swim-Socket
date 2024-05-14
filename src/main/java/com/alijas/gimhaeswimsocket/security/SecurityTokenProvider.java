@@ -175,8 +175,8 @@ public class SecurityTokenProvider {
    private Instant createExpiresDate(SecurityTokenType tokenType) {
       Instant expiresDate;
       if(tokenType == SecurityTokenType.ACCESS_TOKEN) {
-//         expiresDate = ZonedDateTime.now().plusHours(SecurityConstants.accessTokenDurationHour).toInstant();
-         expiresDate = ZonedDateTime.now().plusSeconds(30L).toInstant();
+         expiresDate = ZonedDateTime.now().plusHours(SecurityConstants.accessTokenDurationHour).toInstant();
+//         expiresDate = ZonedDateTime.now().plusSeconds(30L).toInstant();
       } else if(tokenType == SecurityTokenType.REFRESH_TOKEN) {
          expiresDate = ZonedDateTime.now().plusDays(SecurityConstants.refreshTokenDurationDay).toInstant();
       } else {

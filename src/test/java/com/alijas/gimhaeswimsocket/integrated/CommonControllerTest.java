@@ -7,12 +7,18 @@ import com.alijas.gimhaeswimsocket.modules.user.entity.User;
 import com.alijas.gimhaeswimsocket.modules.user.enums.ApplyStatus;
 import com.alijas.gimhaeswimsocket.modules.user.enums.RoleType;
 import com.alijas.gimhaeswimsocket.modules.user.enums.UserStatus;
+import com.alijas.gimhaeswimsocket.security.SecurityConstants;
 import com.alijas.gimhaeswimsocket.security.SecurityTokenType;
+import com.auth0.jwt.JWT;
+import com.auth0.jwt.algorithms.Algorithm;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.MediaType;
 import org.springframework.restdocs.payload.FieldDescriptor;
 import org.springframework.test.web.servlet.ResultActions;
+
+import java.time.Instant;
+import java.time.ZonedDateTime;
 
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.get;

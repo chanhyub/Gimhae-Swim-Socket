@@ -89,3 +89,108 @@ include::{snippets}/success-user-login/curl-request.adoc[]
 
 === Request HTTPIE
 include::{snippets}/success-user-login/httpie-request.adoc[]
+
+
+== [FAIL] 재로그인 실패(유효성 검사)
+
+=== HTTP Request 정보
+include::{snippets}/fail-user-re-login-valid/http-request.adoc[]
+
+=== HTTP Response 정보
+include::{snippets}/fail-user-re-login-valid/http-response.adoc[]
+
+=== Request Body 정보
+include::{snippets}/fail-user-re-login-valid/request-body.adoc[]
+
+=== Request Field 정보
+include::{snippets}/fail-user-re-login-valid/request-fields.adoc[]
+
+=== Response Body 정보
+include::{snippets}/fail-user-re-login-valid/response-body.adoc[]
+
+=== Response Field 정보
+include::{snippets}/fail-user-re-login-valid/response-fields.adoc[]
+
+=== Request CURL
+include::{snippets}/fail-user-re-login-valid/curl-request.adoc[]
+
+=== Request HTTPIE
+include::{snippets}/fail-user-re-login-valid/httpie-request.adoc[]
+
+== [FAIL] 재로그인 실패(토큰 값이 올바르지 않음)
+
+=== Http Request 정보
+include::{snippets}/fail-user-re-login-token-not-valid/http-request.adoc[]
+
+=== Http Response 정보
+include::{snippets}/fail-user-re-login-token-not-valid/http-response.adoc[]
+
+=== Request Body 정보
+include::{snippets}/fail-user-re-login-token-not-valid/request-body.adoc[]
+
+=== Request Field 정보
+include::{snippets}/fail-user-re-login-token-not-valid/request-fields.adoc[]
+
+=== Response Body 정보
+include::{snippets}/fail-user-re-login-token-not-valid/response-body.adoc[]
+
+=== Response Field 정보
+include::{snippets}/fail-user-re-login-token-not-valid/response-fields.adoc[]
+
+=== Request CURL
+include::{snippets}/fail-user-re-login-token-not-valid/curl-request.adoc[]
+
+=== Request HTTPIE
+include::{snippets}/fail-user-re-login-token-not-valid/httpie-request.adoc[]
+
+== [FAIL] 재로그인 실패(아이디가 존재하지 않음)
+
+=== Http Request 정보
+include::{snippets}/fail-user-re-login-id-not-exist/http-request.adoc[]
+
+=== Http Response 정보
+include::{snippets}/fail-user-re-login-id-not-exist/http-response.adoc[]
+
+=== Request Body 정보
+include::{snippets}/fail-user-re-login-id-not-exist/request-body.adoc[]
+
+=== Request Field 정보
+include::{snippets}/fail-user-re-login-id-not-exist/request-fields.adoc[]
+
+=== Response Body 정보
+include::{snippets}/fail-user-re-login-id-not-exist/response-body.adoc[]
+
+=== Response Field 정보
+include::{snippets}/fail-user-re-login-id-not-exist/response-fields.adoc[]
+
+=== Request CURL
+include::{snippets}/fail-user-re-login-id-not-exist/curl-request.adoc[]
+
+=== Request HTTPIE
+include::{snippets}/fail-user-re-login-id-not-exist/httpie-request.adoc[]
+
+== [SUCCESS] 재로그인 성공
+
+=== Http Request 정보
+include::{snippets}/success-user-re-login/http-request.adoc[]
+
+=== Http Response 정보
+include::{snippets}/success-user-re-login/http-response.adoc[]
+
+=== Request Body 정보
+include::{snippets}/success-user-re-login/request-body.adoc[]
+
+=== Request Field 정보
+include::{snippets}/success-user-re-login/request-fields.adoc[]
+
+=== Response Body 정보
+include::{snippets}/success-user-re-login/response-body.adoc[]
+
+=== Response Field 정보
+include::{snippets}/success-user-re-login/response-fields.adoc[]
+
+=== Request CURL
+include::{snippets}/success-user-re-login/curl-request.adoc[]
+
+=== Request HTTPIE
+include::{snippets}/success-user-re-login/httpie-request.adoc[]
