@@ -89,3 +89,90 @@ include::{snippets}/success-section-list/curl-request.adoc[]
 
 === HTTPIE 정보
 include::{snippets}/success-section-list/httpie-request.adoc[]
+
+== [FAIL] 조 기록 측정(조 ID가 존재하지 않음)
+
+=== HttpRequest 정보
+include::{snippets}/fail-section-update-section-id-not-exist/http-request.adoc[]
+
+=== HttpResponse 정보
+include::{snippets}/fail-section-update-section-id-not-exist/http-response.adoc[]
+
+=== RequestHeader 정보
+include::{snippets}/fail-section-update-section-id-not-exist/request-headers.adoc[]
+
+=== RequestBody 정보
+include::{snippets}/fail-section-update-section-id-not-exist/request-body.adoc[]
+
+=== ResponseBody 정보
+include::{snippets}/fail-section-update-section-id-not-exist/response-body.adoc[]
+
+=== RequestFields 정보
+include::{snippets}/fail-section-update-section-id-not-exist/request-fields.adoc[]
+
+=== ResponseFields 정보
+include::{snippets}/fail-section-update-section-id-not-exist/response-fields.adoc[]
+
+=== CURL 정보
+include::{snippets}/fail-section-update-section-id-not-exist/curl-request.adoc[]
+
+=== HTTPIE 정보
+include::{snippets}/fail-section-update-section-id-not-exist/httpie-request.adoc[]
+
+== [FAIL] 조 기록 측정(조가 존재하지 않음)
+
+=== HttpRequest 정보
+include::{snippets}/fail-section-update-section-not-exist/http-request.adoc[]
+
+=== HttpResponse 정보
+include::{snippets}/fail-section-update-section-not-exist/http-response.adoc[]
+
+=== RequestHeader 정보
+include::{snippets}/fail-section-update-section-not-exist/request-headers.adoc[]
+
+=== RequestBody 정보
+include::{snippets}/fail-section-update-section-not-exist/request-body.adoc[]
+
+=== ResponseBody 정보
+include::{snippets}/fail-section-update-section-not-exist/response-body.adoc[]
+
+=== RequestFields 정보
+include::{snippets}/fail-section-update-section-not-exist/request-fields.adoc[]
+
+=== ResponseFields 정보
+include::{snippets}/fail-section-update-section-not-exist/response-fields.adoc[]
+
+=== CURL 정보
+include::{snippets}/fail-section-update-section-not-exist/curl-request.adoc[]
+
+=== HTTPIE 정보
+include::{snippets}/fail-section-update-section-not-exist/httpie-request.adoc[]
+
+== [SUCCESS] 조 기록 측정
+
+=== HttpRequest 정보
+include::{snippets}/success-section-update/http-request.adoc[]
+
+=== HttpResponse 정보
+include::{snippets}/success-section-update/http-response.adoc[]
+
+=== RequestHeader 정보
+include::{snippets}/success-section-update/request-headers.adoc[]
+
+=== RequestBody 정보
+include::{snippets}/success-section-update/request-body.adoc[]
+
+=== ResponseBody 정보
+include::{snippets}/success-section-update/response-body.adoc[]
+
+=== RequestFields 정보
+include::{snippets}/success-section-update/request-fields.adoc[]
+
+=== ResponseFields 정보
+include::{snippets}/success-section-update/response-fields.adoc[]
+
+=== CURL 정보
+include::{snippets}/success-section-update/curl-request.adoc[]
+
+=== HTTPIE 정보
+include::{snippets}/success-section-update/httpie-request.adoc[]

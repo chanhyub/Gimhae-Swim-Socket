@@ -10,6 +10,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ResUserLoginDTO {
+    private String fullName;
     private String accessToken;
     private String refreshToken;
 }

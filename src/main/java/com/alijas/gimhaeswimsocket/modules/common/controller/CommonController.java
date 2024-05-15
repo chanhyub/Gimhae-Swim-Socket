@@ -53,6 +53,7 @@ public class CommonController {
         }
 
         ResUserLoginDTO token = commonService.getToken(user);
+        token.setFullName(user.getFullName());
 
         HttpHeaders headers = new HttpHeaders();
         headers.add(SecurityConstants.TOKEN_HEADER, SecurityConstants.TOKEN_PREFIX + token.getAccessToken());
@@ -86,6 +87,7 @@ public class CommonController {
         User user = optionalUser.get();
 
         ResUserLoginDTO token = commonService.getToken(user);
+        token.setFullName(user.getFullName());
 
         HttpHeaders headers = new HttpHeaders();
         headers.add(SecurityConstants.TOKEN_HEADER, SecurityConstants.TOKEN_PREFIX + token.getAccessToken());

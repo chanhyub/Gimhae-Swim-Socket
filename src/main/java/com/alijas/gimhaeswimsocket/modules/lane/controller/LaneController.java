@@ -57,6 +57,6 @@ public class LaneController {
         Lane lane = laneService.getLane(laneUpdateRequest.laneId()).orElseThrow(() -> new CustomRestException("레인을 찾을 수 없습니다.", HttpStatus.BAD_REQUEST));
 
         laneService.updateLane(lane);
-        return ResponseEntity.ok("측정이 완료되었습니다.");
+        return ResponseEntity.ok("레인 기록 측정이 완료되었습니다.");
     }
 }

@@ -111,6 +111,7 @@ public class CommonControllerTest extends AbstractIntegrated {
                                         }
                                 ),
                                 responseFields(
+                                        fieldWithPath("fullName").description("사용자 이름"),
                                         fieldWithPath("accessToken").description("액세스 토큰"),
                                         fieldWithPath("refreshToken").description("리프레시 토큰")
                                 )
@@ -225,6 +226,7 @@ public class CommonControllerTest extends AbstractIntegrated {
                                         }
                                 ),
                                 responseFields(
+                                        fieldWithPath("fullName").description("사용자 이름"),
                                         fieldWithPath("accessToken").description("액세스 토큰"),
                                         fieldWithPath("refreshToken").description("리프레시 토큰")
                                 )

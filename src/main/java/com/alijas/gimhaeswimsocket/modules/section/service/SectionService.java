@@ -6,6 +6,7 @@ import com.alijas.gimhaeswimsocket.modules.competition.repository.CompetitionEve
 import com.alijas.gimhaeswimsocket.modules.lane.entity.Lane;
 import com.alijas.gimhaeswimsocket.modules.lane.repository.LaneRepository;
 import com.alijas.gimhaeswimsocket.modules.referee.repository.RefereeRepository;
+import com.alijas.gimhaeswimsocket.modules.section.dto.SectionUpdateRequest;
 import com.alijas.gimhaeswimsocket.modules.section.entity.Section;
 import com.alijas.gimhaeswimsocket.modules.section.repository.SectionRepository;
 import com.alijas.gimhaeswimsocket.modules.section.response.SectionResponse;
@@ -52,5 +53,10 @@ public class SectionService {
                 .stream()
                 .map(Section::toSectionResponse)
                 .toList();
+    }
+
+    public void updateSection(Section section) {
+        section.setIsComplete(true);
+        sectionRepository.save(section);
     }
 }

@@ -1,5 +1,6 @@
 package com.alijas.gimhaeswimsocket.integrated;
 
+import com.alijas.gimhaeswimsocket.modules.section.dto.SectionUpdateRequest;
 import com.alijas.gimhaeswimsocket.security.SecurityConstants;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -7,10 +8,15 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.MediaType;
 import org.springframework.restdocs.payload.FieldDescriptor;
+import org.springframework.restdocs.payload.JsonFieldType;
 import org.springframework.test.web.servlet.ResultActions;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.get;
+import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.put;
 import static org.springframework.restdocs.payload.PayloadDocumentation.*;
 import static org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath;
 import static org.springframework.restdocs.request.RequestDocumentation.parameterWithName;
@@ -106,6 +112,91 @@ public class SectionControllerTest extends AbstractIntegrated {
                                 responseFields(
                                         fieldWithPath("[].id").description("조 고유번호"),
                                         fieldWithPath("[].sectionNumber").description("조 차수")
+                                )
+                        )
+                );
+    }
+
+    @Test
+    @DisplayName("조 기록 측정 실패 - 조 ID가 존재하지 않음")
+    void updateSectionFailBySectionIdNotExist() throws Exception {
+        SectionUpdateRequest sectionUpdateRequest = new SectionUpdateRequest(null);
+        ResultActions perform = this.mockMvc.perform(
+                put("/sections")
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .content(objectMapper.writeValueAsString(sectionUpdateRequest))
+                        .header(SecurityConstants.TOKEN_HEADER, getRefereeToken().getAccessToken())
+                        .accept(MediaType.APPLICATION_JSON_VALUE)
+        );
+
+        perform
+                .andExpect(status().isBadRequest())
+                .andDo(print())
+                .andDo(document("fail-section-update-section-id-not-exist",
+                                getJwtRequestHeadersSnippet(),
+                                requestFields(
+                                        fieldWithPath("sectionId")
+                                                .description("조 고유번호")
+                                ),
+                                responseFields(getFailResponseField)
+                        )
+                );
+    }
+
+    @Test
+    @DisplayName("조 기록 측정 실패 - 조가 존재하지 않음")
+    void updateSectionFailBySectionNotExist() throws Exception {
+        SectionUpdateRequest sectionUpdateRequest = new SectionUpdateRequest(0L);
+        ResultActions perform = this.mockMvc.perform(
+                put("/sections")
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .content(objectMapper.writeValueAsString(sectionUpdateRequest))
+                        .header(SecurityConstants.TOKEN_HEADER, getRefereeToken().getAccessToken())
+                        .accept(MediaType.APPLICATION_JSON_VALUE)
+        );
+
+        perform
+                .andExpect(status().isBadRequest())
+                .andDo(print())
+                .andDo(document("fail-section-update-section-not-exist",
+                                getJwtRequestHeadersSnippet(),
+                                requestFields(
+                                        fieldWithPath("sectionId")
+                                                .type(JsonFieldType.NUMBER)
+                                                .description("조 고유번호")
+                                ),
+                                responseFields(getFailResponseField)
+                        )
+                );
+    }
+
+    @Test
+    @DisplayName("조 기록 측정 성공")
+    void updateSection() throws Exception {
+        SectionUpdateRequest sectionUpdateRequest = new SectionUpdateRequest(1L);
+
+        ResultActions perform = this.mockMvc.perform(
+                put("/sections")
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .content(objectMapper.writeValueAsString(sectionUpdateRequest))
+                        .header(SecurityConstants.TOKEN_HEADER, getRefereeToken().getAccessToken())
+                        .accept(MediaType.APPLICATION_JSON_VALUE)
+        );
+
+        perform
+                .andExpect(status().isOk())
+                .andDo(print())
+                .andDo(document("success-section-update",
+                                getJwtRequestHeadersSnippet(),
+                                requestFields(
+                                        fieldWithPath("sectionId")
+                                                .type(JsonFieldType.NUMBER)
+                                                .description("조 고유번호")
+                                ),
+                                responseFields(
+                                        fieldWithPath("message")
+                                                .type(JsonFieldType.STRING)
+                                                .description("메시지")
                                 )
                         )
                 );
