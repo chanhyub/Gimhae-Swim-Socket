@@ -37,7 +37,8 @@ public class Section extends BaseTime {
     public SectionResponse toSectionResponse() {
         return new SectionResponse(
                 this.id,
-                this.sectionNumber
+                this.sectionNumber,
+                this.isComplete
         );
     }
 }
