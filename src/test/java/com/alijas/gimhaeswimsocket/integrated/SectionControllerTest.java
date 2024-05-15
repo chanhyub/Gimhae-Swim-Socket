@@ -111,7 +111,8 @@ public class SectionControllerTest extends AbstractIntegrated {
                                 ),
                                 responseFields(
                                         fieldWithPath("[].id").description("조 고유번호"),
-                                        fieldWithPath("[].sectionNumber").description("조 차수")
+                                        fieldWithPath("[].sectionNumber").description("조 차수"),
+                                        fieldWithPath("[].isComplete").description("조 기록 측정 완료 여부")
                                 )
                         )
                 );
